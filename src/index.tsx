@@ -5,11 +5,13 @@ import Home from './home/Home';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Basket from './basket/Basket';
+import NotFound from './not-found-error/NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>,
+    errorElement: <NotFound/>,
     children: [
       {
         path: 'basket',
