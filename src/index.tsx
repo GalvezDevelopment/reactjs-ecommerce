@@ -4,11 +4,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './home/Home';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Basket from './basket/Basket';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home></Home>
+    element: <Home></Home>,
+    children: [
+      {
+        path: 'basket',
+        element: <Basket></Basket>
+      }
+    ]
   }
 ]);
 
