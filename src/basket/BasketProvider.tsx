@@ -1,8 +1,9 @@
-import react, { useState } from 'react';
+import react, { PropsWithChildren, useState } from 'react';
 import { BasketContext } from './BasketContext';
+import { Product } from '../product/product.interface';
 
-function BasketProvider({ children }: any) {
-    const [products, setProducts] = useState([]);
+function BasketProvider({ children }: PropsWithChildren) {
+    const [products, setProducts] = useState<Product[]>([]);
     return (<BasketContext.Provider value={{ products, setProducts }}>{children}</BasketContext.Provider>);
 };
 

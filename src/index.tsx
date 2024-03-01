@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Basket from './basket/Basket';
 import NotFound from './not-found-error/NotFound';
 import BasketProvider from './basket/BasketProvider';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {

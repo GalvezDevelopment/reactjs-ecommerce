@@ -1,3 +1,4 @@
 import react, { createContext } from 'react';
+import { Product } from '../product/product.interface';
 
-export const BasketContext = createContext<{ products: any[], setProducts: Function } | null>(null);
+export const BasketContext = createContext<{ products: Product[], setProducts: Function } | null>(null);
