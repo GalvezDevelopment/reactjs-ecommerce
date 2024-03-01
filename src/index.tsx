@@ -6,12 +6,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Basket from './basket/Basket';
 import NotFound from './not-found-error/NotFound';
+import BasketProvider from './basket/BasketProvider';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>,
-    errorElement: <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         path: 'basket',
@@ -26,7 +27,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BasketProvider>
+      <RouterProvider router={router} />
+    </BasketProvider>
   </React.StrictMode>
 );
 
