@@ -8,16 +8,21 @@ import Basket from './basket/Basket';
 import NotFound from './not-found-error/NotFound';
 import BasketProvider from './basket/BasketProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductList from './product/ProductList';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home></Home>,
+    element: <Home />,
     errorElement: <NotFound />,
     children: [
       {
+        path: '/',
+        element: <ProductList />
+      },
+      {
         path: 'basket',
-        element: <Basket></Basket>
+        element: <Basket />
       }
     ]
   }
