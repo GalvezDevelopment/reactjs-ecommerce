@@ -1,23 +1,24 @@
-import react, { useState, useEffect, useContext } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Product } from '../product/product.interface';
-import { ProductContext } from '../product/ProductContext';
 
 export function useProducts() {
+    const customRef = useRef(false);
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
+    const fetchProducts = async () => {
         if (products.length > 0) return;
-        setLoading(true);
-        const fetchProducts = async () => {
-            const call = await fetch('products.json'); // Simulating a real API call
-            const products = await call.json();
-            setProducts(products);
-        };
-        setTimeout(() => {
+        const call = await fetch('products.json'); // Simulating a real API call
+        const productsFetched = await call.json();
+        setProducts(productsFetched);
+
+    };
+
+    useEffect(() => {
+        if (!customRef.current) {
             fetchProducts();
-            setLoading(false);
-        }, 3000); // Simulating a delay
+        }
+        return () => { customRef.current = true };
     }, []);
 
     return { products, isLoading };
