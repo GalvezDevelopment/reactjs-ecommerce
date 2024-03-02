@@ -3,8 +3,13 @@ import { BasketContext } from './BasketContext';
 import { Product } from '../product/product.interface';
 
 function BasketProvider({ children }: PropsWithChildren) {
-    const [products, setProducts] = useState<Product[]>([]);
-    return (<BasketContext.Provider value={{ products, setProducts }}>{children}</BasketContext.Provider>);
+    const [products, setProducts] = useState<string[]>([]);
+
+    const addProduct = (id: string) => {
+        setProducts([...products, id]);
+    };
+
+    return (<BasketContext.Provider value={{ basket: products, setBasketProducts: addProduct }}>{children}</BasketContext.Provider>);
 };
 
 export default BasketProvider;

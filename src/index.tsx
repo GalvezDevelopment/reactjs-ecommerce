@@ -9,6 +9,7 @@ import NotFound from './not-found-error/NotFound';
 import BasketProvider from './basket/BasketProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductList from './product/ProductList';
+import { ProductProvider } from './product/ProductProvider';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <ProductList />
       },
       {
@@ -33,9 +34,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BasketProvider>
-      <RouterProvider router={router} />
-    </BasketProvider>
+    <ProductProvider>
+      <BasketProvider>
+        <RouterProvider router={router} />
+      </BasketProvider>
+    </ProductProvider>
   </React.StrictMode>
 );
 
