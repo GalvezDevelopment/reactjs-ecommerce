@@ -1,6 +1,5 @@
-import react, { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { BasketContext } from './BasketContext';
-import { Product } from '../product/product.interface';
 
 function BasketProvider({ children }: PropsWithChildren) {
     const [products, setProducts] = useState<string[]>([]);

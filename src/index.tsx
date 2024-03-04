@@ -10,6 +10,7 @@ import BasketProvider from './basket/BasketProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductList from './product/ProductList';
 import { ProductProvider } from './product/ProductProvider';
+import Checkout from './checkout/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'basket',
         element: <Basket />
+      },
+      {
+        path: 'checkout',
+        element: <Checkout />
       }
     ]
   }
